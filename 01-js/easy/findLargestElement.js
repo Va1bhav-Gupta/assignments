@@ -6,6 +6,15 @@
 */
 
 function findLargestElement(numbers) {
+    var maxi = -1000000;
+    for(var i=0; i<numbers.length; i++)
+    {
+        if(maxi < numbers[i])
+        maxi = numbers[i];
+    }
+    if(numbers.length == 0)
+    return undefined;
+    return maxi;
     
 }
 

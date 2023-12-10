@@ -16,6 +16,36 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  var result;
+
+  function add(number){
+    result += number;
+  }
+  function subtract(number){
+    result -= number;
+  }
+  function multiply(number){
+    result = number*result;
+  }
+  function divide(number){
+    result += number;
+  }
+  function getResult(number){
+    return result;
+  }
+  function calculate(str){
+    
+    for(int i=0; i< str.length; i++)
+    {
+      if(str[i] != )
+    }
+  }
+  function add(number){
+    result += number;
+  }
+
+
+}
 
 module.exports = Calculator;
