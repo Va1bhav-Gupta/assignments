@@ -10,7 +10,20 @@ const app = express();
 // User will be sending in their user id in the header as 'user-id'
 // You have been given a numberOfRequestsForUser object to start off with which
 // clears every one second
+app.use((req, res, next) => {
+  const userId = req.headers['user-id'] || 'anonymous';
 
+  // Initialize or increment the request count for the user
+  numberOfRequestsForUser[userId] = (numberOfRequestsForUser[userId] || 0) + 1;
+
+  // Check if the user has exceeded the limit
+  if (numberOfRequestsForUser[userId] > 5) {
+    res.status(404).json({ error: 'Rate limit exceeded' });
+  } else {
+    // Continue to the next middleware or route
+    next();
+  }
+});
 let numberOfRequestsForUser = {};
 setInterval(() => {
     numberOfRequestsForUser = {};
